@@ -16,6 +16,9 @@
 		7D77EBEC2935D4A400BAA949 /* CurrencyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D77EBEB2935D4A400BAA949 /* CurrencyUITests.swift */; };
 		7D77EBEE2935D4A400BAA949 /* CurrencyUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D77EBED2935D4A400BAA949 /* CurrencyUITestsLaunchTests.swift */; };
 		7D77EC002935DBAF00BAA949 /* ConverterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D77EBFF2935DBAF00BAA949 /* ConverterViewController.swift */; };
+		7D81AD582936066700E1E732 /* LayoutConstraints+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D81AD572936066700E1E732 /* LayoutConstraints+Helpers.swift */; };
+		7D81AD5A2936085E00E1E732 /* UITextField+CustomInit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D81AD592936085E00E1E732 /* UITextField+CustomInit.swift */; };
+		7D81AD5D2936112100E1E732 /* CurrencyConversionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D81AD5C2936112100E1E732 /* CurrencyConversionViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,9 @@
 		7D77EBEB2935D4A400BAA949 /* CurrencyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyUITests.swift; sourceTree = "<group>"; };
 		7D77EBED2935D4A400BAA949 /* CurrencyUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		7D77EBFF2935DBAF00BAA949 /* ConverterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterViewController.swift; sourceTree = "<group>"; };
+		7D81AD572936066700E1E732 /* LayoutConstraints+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LayoutConstraints+Helpers.swift"; sourceTree = "<group>"; };
+		7D81AD592936085E00E1E732 /* UITextField+CustomInit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+CustomInit.swift"; sourceTree = "<group>"; };
+		7D81AD5C2936112100E1E732 /* CurrencyConversionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConversionViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +105,8 @@
 		7D77EBC92935D4A200BAA949 /* Currency */ = {
 			isa = PBXGroup;
 			children = (
+				7D81AD5B2936110900E1E732 /* ViewModels */,
+				7D77EC012935E19300BAA949 /* Extensions */,
 				7D77EBFE2935DB9300BAA949 /* ViewControllers */,
 				7D77EBCA2935D4A200BAA949 /* AppDelegate.swift */,
 				7D77EBCC2935D4A200BAA949 /* SceneDelegate.swift */,
@@ -133,6 +141,31 @@
 				7D77EBFF2935DBAF00BAA949 /* ConverterViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		7D77EC012935E19300BAA949 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				7D77EC022935E19C00BAA949 /* UIViews */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		7D77EC022935E19C00BAA949 /* UIViews */ = {
+			isa = PBXGroup;
+			children = (
+				7D81AD572936066700E1E732 /* LayoutConstraints+Helpers.swift */,
+				7D81AD592936085E00E1E732 /* UITextField+CustomInit.swift */,
+			);
+			path = UIViews;
+			sourceTree = "<group>";
+		};
+		7D81AD5B2936110900E1E732 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				7D81AD5C2936112100E1E732 /* CurrencyConversionViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -266,8 +299,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				7D77EBCF2935D4A200BAA949 /* ViewController.swift in Sources */,
+				7D81AD5D2936112100E1E732 /* CurrencyConversionViewModel.swift in Sources */,
 				7D77EBCB2935D4A200BAA949 /* AppDelegate.swift in Sources */,
+				7D81AD5A2936085E00E1E732 /* UITextField+CustomInit.swift in Sources */,
 				7D77EBCD2935D4A200BAA949 /* SceneDelegate.swift in Sources */,
+				7D81AD582936066700E1E732 /* LayoutConstraints+Helpers.swift in Sources */,
 				7D77EC002935DBAF00BAA949 /* ConverterViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

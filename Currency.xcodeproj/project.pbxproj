@@ -10,12 +10,12 @@
 		7D77EBCB2935D4A200BAA949 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D77EBCA2935D4A200BAA949 /* AppDelegate.swift */; };
 		7D77EBCD2935D4A200BAA949 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D77EBCC2935D4A200BAA949 /* SceneDelegate.swift */; };
 		7D77EBCF2935D4A200BAA949 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D77EBCE2935D4A200BAA949 /* ViewController.swift */; };
-		7D77EBD22935D4A200BAA949 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D77EBD02935D4A200BAA949 /* Main.storyboard */; };
 		7D77EBD42935D4A400BAA949 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D77EBD32935D4A400BAA949 /* Assets.xcassets */; };
 		7D77EBD72935D4A400BAA949 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D77EBD52935D4A400BAA949 /* LaunchScreen.storyboard */; };
 		7D77EBE22935D4A400BAA949 /* CurrencyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D77EBE12935D4A400BAA949 /* CurrencyTests.swift */; };
 		7D77EBEC2935D4A400BAA949 /* CurrencyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D77EBEB2935D4A400BAA949 /* CurrencyUITests.swift */; };
 		7D77EBEE2935D4A400BAA949 /* CurrencyUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D77EBED2935D4A400BAA949 /* CurrencyUITestsLaunchTests.swift */; };
+		7D77EC002935DBAF00BAA949 /* ConverterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D77EBFF2935DBAF00BAA949 /* ConverterViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,7 +40,6 @@
 		7D77EBCA2935D4A200BAA949 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7D77EBCC2935D4A200BAA949 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		7D77EBCE2935D4A200BAA949 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		7D77EBD12935D4A200BAA949 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7D77EBD32935D4A400BAA949 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7D77EBD62935D4A400BAA949 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7D77EBD82935D4A400BAA949 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -49,6 +48,7 @@
 		7D77EBE72935D4A400BAA949 /* CurrencyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CurrencyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D77EBEB2935D4A400BAA949 /* CurrencyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyUITests.swift; sourceTree = "<group>"; };
 		7D77EBED2935D4A400BAA949 /* CurrencyUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		7D77EBFF2935DBAF00BAA949 /* ConverterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,10 +99,10 @@
 		7D77EBC92935D4A200BAA949 /* Currency */ = {
 			isa = PBXGroup;
 			children = (
+				7D77EBFE2935DB9300BAA949 /* ViewControllers */,
 				7D77EBCA2935D4A200BAA949 /* AppDelegate.swift */,
 				7D77EBCC2935D4A200BAA949 /* SceneDelegate.swift */,
 				7D77EBCE2935D4A200BAA949 /* ViewController.swift */,
-				7D77EBD02935D4A200BAA949 /* Main.storyboard */,
 				7D77EBD32935D4A400BAA949 /* Assets.xcassets */,
 				7D77EBD52935D4A400BAA949 /* LaunchScreen.storyboard */,
 				7D77EBD82935D4A400BAA949 /* Info.plist */,
@@ -125,6 +125,14 @@
 				7D77EBED2935D4A400BAA949 /* CurrencyUITestsLaunchTests.swift */,
 			);
 			path = CurrencyUITests;
+			sourceTree = "<group>";
+		};
+		7D77EBFE2935DB9300BAA949 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				7D77EBFF2935DBAF00BAA949 /* ConverterViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,7 +241,6 @@
 			files = (
 				7D77EBD72935D4A400BAA949 /* LaunchScreen.storyboard in Resources */,
 				7D77EBD42935D4A400BAA949 /* Assets.xcassets in Resources */,
-				7D77EBD22935D4A200BAA949 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,6 +268,7 @@
 				7D77EBCF2935D4A200BAA949 /* ViewController.swift in Sources */,
 				7D77EBCB2935D4A200BAA949 /* AppDelegate.swift in Sources */,
 				7D77EBCD2935D4A200BAA949 /* SceneDelegate.swift in Sources */,
+				7D77EC002935DBAF00BAA949 /* ConverterViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,14 +305,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		7D77EBD02935D4A200BAA949 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7D77EBD12935D4A200BAA949 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		7D77EBD52935D4A400BAA949 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -440,11 +440,13 @@
 				DEVELOPMENT_TEAM = Z2H96X8Y2W;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Currency/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Currency!";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -468,11 +470,13 @@
 				DEVELOPMENT_TEAM = Z2H96X8Y2W;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Currency/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Currency!";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

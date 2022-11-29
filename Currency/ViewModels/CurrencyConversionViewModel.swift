@@ -8,7 +8,24 @@
 import Foundation
 
 
+protocol DataFetching {
+    func dataFetchStarted()
+    func dateFetchCompleted()
+}
+
+protocol DataRefreshable {
+    func updateDisplayedData()
+}
+
+protocol CurrencyConversionViewModelEventable: AnyObject, DataFetching, DataRefreshable {}
+
 class CurrencyConversionViewModel {
+    
+    init(subscriber: CurrencyConversionViewModelEventable) {
+        self.subscriber = subscriber
+    }
+    
+    weak var subscriber: CurrencyConversionViewModelEventable?
     
     var currencies: [String: String]?
     var currencyRate: [String:Double]?

@@ -9,8 +9,8 @@ import Foundation
 import UIKit
 
 enum TextFieldType {
-    case From
-    case To
+    case from
+    case to
 }
 
 protocol TextFieldIdentifiable {
@@ -19,14 +19,14 @@ protocol TextFieldIdentifiable {
 
 
 class CurrencyAmountTextField: UITextField, TextFieldIdentifiable {
+        
+    private var fieldType: TextFieldType?
     
-    weak var model: CurrencyConversionViewModel?
-    
-    private var fieldType: TextFieldType = .From
+    private var currencyButton = UIButton.init(type: .custom)
     
     var textFieldType: TextFieldType {
         get {
-            return fieldType
+            return fieldType!
         }
         set {
             fieldType = newValue
@@ -47,13 +47,15 @@ class CurrencyAmountTextField: UITextField, TextFieldIdentifiable {
         borderStyle = .roundedRect
         textAlignment = .center
         keyboardType = .decimalPad
+        leftView = currencyButton
+        currencyButton.backgroundColor = .gray
+        currencyButton.setTitle("__\u{25BE}", for: .normal)
+        
+        leftViewMode = .always
     }
     
     override func didMoveToSuperview() {
         super.didMoveToSuperview()
-        guard let _ = model else {
-            debugPrint("Model set up failed. forgot to set up model")
-            return
-        }
+        assert(fieldType != nil, "Field type is not set !!!")
     }
 }

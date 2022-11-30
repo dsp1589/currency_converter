@@ -215,6 +215,11 @@ class CurrencyConversionViewModel {
         switch result {
         case .success(let rates):
             currencyRate = rates?.quotes
+            if fromTextFieldAmountDisplayable == nil || fromTextFieldAmountDisplayable == "" {
+                fromTextFieldAmountDisplayable = defaultAmount.description
+                fromTextFieldAmount = fromTextFieldAmountDisplayable
+                fromTextFieldContentUpdated()
+            }
             break
         case .failure(let err):
             handleError(err: err)
@@ -238,6 +243,11 @@ class CurrencyConversionViewModel {
     private func displayableDataUpdated() {
         DispatchQueue.main.async { [weak self] in
             self?.subscriber?.updateDisplayedData()
+        }
+    }
+    private func fromTextFieldContentUpdated() {
+        DispatchQueue.main.async { [weak self] in 
+            self?.subscriber?.updateFromfield()
         }
     }
 }

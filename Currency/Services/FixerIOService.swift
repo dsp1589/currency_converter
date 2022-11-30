@@ -23,7 +23,7 @@ enum RequestType {
 class FixerIOService : Service {
     
     let baseFixerURL = "api.apilayer.com"
-    let apiKey = "OOo3pNFSfSHvUEECZ458DnJT8GFJI991" //Exceedd
+    let apiKey = "d0IMDZZ0YHaONW8cax5WppSNLPlghpix" //Exceedd
     
     let path: String
     let method: String

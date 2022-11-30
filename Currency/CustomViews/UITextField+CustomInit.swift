@@ -25,13 +25,13 @@ class CurrencyAmountTextField: UITextField, TextFieldIdentifiable {
     
     weak var pickerActionHanlder: CurrencyPickable?
         
-    private var fieldType: TextFieldType?
+    private var fieldType: TextFieldType = .from
     
     private var currencyButton = UIButton.init(type: .custom)
     
     var textFieldType: TextFieldType {
         get {
-            return fieldType!
+            return fieldType
         }
         set {
             fieldType = newValue
@@ -61,13 +61,8 @@ class CurrencyAmountTextField: UITextField, TextFieldIdentifiable {
     }
     
     @objc func pickCurrency() {
-        if let _ = pickerActionHanlder, let fieldType = fieldType {
+        if let _ = pickerActionHanlder {
             pickerActionHanlder?.pickCurrency(for: fieldType)
         }
-    }
-    
-    override func didMoveToSuperview() {
-        super.didMoveToSuperview()
-        assert(fieldType != nil, "Field type is not set !!!")
     }
 }

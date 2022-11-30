@@ -11,15 +11,15 @@ import UIKit
 
 class HistoricalRateAndPopularCurrencyController: UIViewController, HistoricalRateTopCurrencyEventable {
     func dataFetchStarted() {
-        
+        //Can show loading
     }
     
     func dateFetchCompleted() {
-        
+        //Can hide loading
     }
     
     func dataFetchError(msg: String?) {
-        
+        //show error message
     }
     
     func historicalDataChanged() {
@@ -35,9 +35,14 @@ class HistoricalRateAndPopularCurrencyController: UIViewController, HistoricalRa
     var topCurrencyList: UITableView!
     var historyDelegate: HistoricalRateTableDelegate
     let topCurrencyDelegate: TopCurrencyTableDelegate
-    init(model: CurrencyConversionViewModel, popularCurrencies: [String]) {
+    init?(model: CurrencyConversionViewModel, popularCurrencies: [String]) {
         self.model = model
-        self.historyModel = HistoricalRateTopCurrencyViewModel(currencyRate: model.currencyRate!, from: model.fromCurrency?.keys.first ?? "", to: model.toCurrency?.keys.first ?? "")
+        guard let currencyRate = model.currencyRate,
+              let from = model.fromCurrency?.keys.first,
+              let to = model.toCurrency?.keys.first else {
+             return nil
+        }
+        self.historyModel = HistoricalRateTopCurrencyViewModel(currencyRate: currencyRate, from: from, to: to)
         self.popularCurrencies = popularCurrencies
         self.historyDelegate = HistoricalRateTableDelegate(history: self.historyModel.historicalRate)
         self.topCurrencyDelegate  = TopCurrencyTableDelegate(currenciesRate: model.currencyRate)

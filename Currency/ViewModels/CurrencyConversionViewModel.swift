@@ -9,8 +9,9 @@ import Foundation
 
 
 protocol DataFetching {
-    func dataFetchStarted()
-    func dateFetchCompleted()
+     func dataFetchStarted()
+     func dateFetchCompleted()
+     func dataFetchError(msg: String?)
 }
 
 protocol DataRefreshable {
@@ -29,6 +30,7 @@ class CurrencyConversionViewModel {
         }
     }
     var reverseCalculation = false
+    var historicalRate : [RateHistory] = []
     private weak var subscriber: CurrencyConversionViewModelEventable?
     
     var currencies: [String: String]? {
@@ -139,16 +141,41 @@ class CurrencyConversionViewModel {
             self?.subscriber?.dataFetchStarted()
         }
         let service = ApiService(service: FixerIOService.init(type: .currencyList))
-        let result: SupportedCurrencies? = try? await service?.getData()
+        let result: Result<SupportedCurrencies?, APIError>? = try? await service?.getData()
         guard let _ = result else {
             DispatchQueue.main.async { [weak self] in
                 self?.subscriber?.dateFetchCompleted()
             }
             return
         }
-        currencies = result?.currencies
+        switch result {
+        case .success(let currenciesAvailable):
+            currencies = currenciesAvailable?.currencies
+            break
+        case .failure(let err):
+            handleError(err: err)
+            break
+        case .none:
+            handleError(err: .unknowError(msg: "No response returned from API host"))
+        }
+        
         DispatchQueue.main.async { [weak self] in
             self?.subscriber?.dateFetchCompleted()
+        }
+    }
+    
+    private func handleError(err: APIError) {
+        switch err {
+        case .unauthAccess:
+            self.subscriber?.dataFetchError(msg: "Please verify access token passed in headers for authorization!!!")
+            break
+        case .unknowError(let message),
+                .rateLimitExceeded(let message):
+            self.subscriber?.dataFetchError(msg: message)
+            break
+        case .requestFailed:
+            self.subscriber?.dataFetchError(msg: "Bad request, server not able to process client request !!!")
+            break
         }
     }
     
@@ -178,7 +205,7 @@ class CurrencyConversionViewModel {
         }
         
         let service = ApiService(service: FixerIOService.init(type: .currencyRate(source: source)))
-        let result: ExchangeRate? = try? await service?.getData()
+        let result: Result<ExchangeRate?, APIError>? = try? await service?.getData()
         guard let _ = result else {
             DispatchQueue.main.async { [weak self] in
                 self?.subscriber?.dateFetchCompleted()
@@ -186,7 +213,16 @@ class CurrencyConversionViewModel {
             return
         }
         currencyRate?.removeAll()
-        currencyRate = result?.quotes
+        switch result {
+        case .success(let rates):
+            currencyRate = rates?.quotes
+            break
+        case .failure(let err):
+            handleError(err: err)
+            break
+        case .none:
+            handleError(err: .unknowError(msg: "No response returned from API host"))
+        }
         DispatchQueue.main.async { [weak self] in
             self?.subscriber?.dateFetchCompleted()
             self?.doCalculation()

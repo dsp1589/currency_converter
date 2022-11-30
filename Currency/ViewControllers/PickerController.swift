@@ -41,12 +41,14 @@ class PickerController : UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier)
+        let currencyCode = currencyCodes[indexPath.row]
+
         if let cell = cell {
-            cell.textLabel?.text = currencyCodes[indexPath.row]
+            cell.textLabel?.text = "\(currencyCodes[indexPath.row]) - \(data?[currencyCode] ?? "")"
             return cell
         } else {
             let cell = UITableViewCell.init(style: .default, reuseIdentifier: cellIdentifier)
-            cell.textLabel?.text = currencyCodes[indexPath.row]
+            cell.textLabel?.text = "\(currencyCodes[indexPath.row]) - \(data?[currencyCode] ?? "")"
             return cell
         }
     }

@@ -10,18 +10,21 @@ import Foundation
 enum ResourcePath: String {
     case currencyList = "/currency_data/list"
     case rateData = "/currency_data/live"
+    case historical = "/currency_data/historical"
 }
 
 enum RequestType {
     case currencyList
     case currencyRate(source: String, currencies:[String]? = nil)
+    case historical(date_YYYY_MM_DD: String, source: String, currencies: [String]?)
 }
 
 
 class FixerIOService : Service {
     
     let baseFixerURL = "api.apilayer.com"
-    let apiKey = "OOo3pNFSfSHvUEECZ458DnJT8GFJI991"
+    let apiKey = "OOo3pNFSfSHvUEECZ458DnJT8GFJI991" //Exceedd
+    
     let path: String
     let method: String
     let header: [String: String]?
@@ -39,6 +42,11 @@ class FixerIOService : Service {
             self.path = ResourcePath.rateData.rawValue
             self.method = "GET"
             self.urlQuery = ["source": source, "currencies": currencies?.joined(separator: ",") ?? ""]
+            break
+        case .historical(let date, let source, let currencies):
+            self.path = ResourcePath.historical.rawValue
+            self.method = "GET"
+            self.urlQuery = ["date": date, "source": source, "currencies": currencies?.joined(separator: ",") ?? ""]
             break
         }
         self.header = header

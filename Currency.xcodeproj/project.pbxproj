@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		7D17935D29364B59008A243E /* PickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D17935C29364B59008A243E /* PickerController.swift */; };
 		7D17935F293674CB008A243E /* ExchangeRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D17935E293674CB008A243E /* ExchangeRate.swift */; };
+		7D179362293747E8008A243E /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D179361293747E8008A243E /* UIViewController+Alert.swift */; };
+		7D17936429374D5E008A243E /* HistoricalRateAndPopularCurrencyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D17936329374D5E008A243E /* HistoricalRateAndPopularCurrencyController.swift */; };
+		7D17936729375F1F008A243E /* HistoricalRateTableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D17936629375F1F008A243E /* HistoricalRateTableDelegate.swift */; };
+		7D17936929375F3D008A243E /* TopCurrencyTableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D17936829375F3D008A243E /* TopCurrencyTableDelegate.swift */; };
+		7D17936B2937744E008A243E /* RateHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D17936A2937744E008A243E /* RateHistory.swift */; };
+		7D17936D293784DE008A243E /* HistoricalRateTopCurrencyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D17936C293784DE008A243E /* HistoricalRateTopCurrencyViewModel.swift */; };
 		7D77EBCB2935D4A200BAA949 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D77EBCA2935D4A200BAA949 /* AppDelegate.swift */; };
 		7D77EBCD2935D4A200BAA949 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D77EBCC2935D4A200BAA949 /* SceneDelegate.swift */; };
 		7D77EBCF2935D4A200BAA949 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D77EBCE2935D4A200BAA949 /* ViewController.swift */; };
@@ -47,6 +53,12 @@
 /* Begin PBXFileReference section */
 		7D17935C29364B59008A243E /* PickerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerController.swift; sourceTree = "<group>"; };
 		7D17935E293674CB008A243E /* ExchangeRate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRate.swift; sourceTree = "<group>"; };
+		7D179361293747E8008A243E /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
+		7D17936329374D5E008A243E /* HistoricalRateAndPopularCurrencyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricalRateAndPopularCurrencyController.swift; sourceTree = "<group>"; };
+		7D17936629375F1F008A243E /* HistoricalRateTableDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricalRateTableDelegate.swift; sourceTree = "<group>"; };
+		7D17936829375F3D008A243E /* TopCurrencyTableDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopCurrencyTableDelegate.swift; sourceTree = "<group>"; };
+		7D17936A2937744E008A243E /* RateHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateHistory.swift; sourceTree = "<group>"; };
+		7D17936C293784DE008A243E /* HistoricalRateTopCurrencyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricalRateTopCurrencyViewModel.swift; sourceTree = "<group>"; };
 		7D77EBC72935D4A200BAA949 /* Currency.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Currency.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D77EBCA2935D4A200BAA949 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7D77EBCC2935D4A200BAA949 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -102,6 +114,15 @@
 			path = CustomViews;
 			sourceTree = "<group>";
 		};
+		7D17936529375F10008A243E /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				7D17936629375F1F008A243E /* HistoricalRateTableDelegate.swift */,
+				7D17936829375F3D008A243E /* TopCurrencyTableDelegate.swift */,
+			);
+			path = Delegates;
+			sourceTree = "<group>";
+		};
 		7D77EBBE2935D4A200BAA949 = {
 			isa = PBXGroup;
 			children = (
@@ -125,6 +146,7 @@
 		7D77EBC92935D4A200BAA949 /* Currency */ = {
 			isa = PBXGroup;
 			children = (
+				7D17936529375F10008A243E /* Delegates */,
 				7D17936029373CB9008A243E /* CustomViews */,
 				7D81AD6529363AB200E1E732 /* Models */,
 				7D81AD5E293634A500E1E732 /* Services */,
@@ -163,6 +185,7 @@
 			children = (
 				7D77EBFF2935DBAF00BAA949 /* ConverterViewController.swift */,
 				7D17935C29364B59008A243E /* PickerController.swift */,
+				7D17936329374D5E008A243E /* HistoricalRateAndPopularCurrencyController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -179,6 +202,7 @@
 			isa = PBXGroup;
 			children = (
 				7D81AD572936066700E1E732 /* LayoutConstraints+Helpers.swift */,
+				7D179361293747E8008A243E /* UIViewController+Alert.swift */,
 			);
 			path = UIViews;
 			sourceTree = "<group>";
@@ -187,6 +211,7 @@
 			isa = PBXGroup;
 			children = (
 				7D81AD5C2936112100E1E732 /* CurrencyConversionViewModel.swift */,
+				7D17936C293784DE008A243E /* HistoricalRateTopCurrencyViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -206,6 +231,7 @@
 			children = (
 				7D81AD6629363ACE00E1E732 /* SupportedCurrencies.swift */,
 				7D17935E293674CB008A243E /* ExchangeRate.swift */,
+				7D17936A2937744E008A243E /* RateHistory.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -347,12 +373,18 @@
 				7D81AD5A2936085E00E1E732 /* UITextField+CustomInit.swift in Sources */,
 				7D81AD6729363ACE00E1E732 /* SupportedCurrencies.swift in Sources */,
 				7D77EBCD2935D4A200BAA949 /* SceneDelegate.swift in Sources */,
+				7D17936929375F3D008A243E /* TopCurrencyTableDelegate.swift in Sources */,
+				7D17936729375F1F008A243E /* HistoricalRateTableDelegate.swift in Sources */,
 				7D17935F293674CB008A243E /* ExchangeRate.swift in Sources */,
+				7D17936429374D5E008A243E /* HistoricalRateAndPopularCurrencyController.swift in Sources */,
 				7D81AD622936361800E1E732 /* FixerIOService.swift in Sources */,
 				7D81AD582936066700E1E732 /* LayoutConstraints+Helpers.swift in Sources */,
+				7D17936D293784DE008A243E /* HistoricalRateTopCurrencyViewModel.swift in Sources */,
 				7D81AD642936363300E1E732 /* Service.swift in Sources */,
 				7D81AD60293634B800E1E732 /* ApiService.swift in Sources */,
 				7D77EC002935DBAF00BAA949 /* ConverterViewController.swift in Sources */,
+				7D17936B2937744E008A243E /* RateHistory.swift in Sources */,
+				7D179362293747E8008A243E /* UIViewController+Alert.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

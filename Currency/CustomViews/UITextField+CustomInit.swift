@@ -17,8 +17,13 @@ protocol TextFieldIdentifiable {
     var textFieldType: TextFieldType { get set }
 }
 
+protocol CurrencyPickable: AnyObject {
+    func pickCurrency(for type: TextFieldType)
+}
 
 class CurrencyAmountTextField: UITextField, TextFieldIdentifiable {
+    
+    weak var pickerActionHanlder: CurrencyPickable?
         
     private var fieldType: TextFieldType?
     
@@ -49,9 +54,16 @@ class CurrencyAmountTextField: UITextField, TextFieldIdentifiable {
         keyboardType = .decimalPad
         leftView = currencyButton
         currencyButton.backgroundColor = .gray
-        currencyButton.setTitle("__\u{25BE}", for: .normal)
-        
+        currencyButton.setTitle("_\u{25BE}", for: .normal)
+        currencyButton.titleLabel?.adjustsFontSizeToFitWidth = true
+        currencyButton.addTarget(self, action: #selector(pickCurrency), for: .touchUpInside)
         leftViewMode = .always
+    }
+    
+    @objc func pickCurrency() {
+        if let _ = pickerActionHanlder, let fieldType = fieldType {
+            pickerActionHanlder?.pickCurrency(for: fieldType)
+        }
     }
     
     override func didMoveToSuperview() {

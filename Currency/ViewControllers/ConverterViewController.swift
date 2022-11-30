@@ -14,9 +14,11 @@ class ConverterViewController: UIViewController {
     let fromCurrencyTextField = CurrencyAmountTextField.init()
     let toCurrencyTextField = CurrencyAmountTextField.init()
     let swapButton = UIButton(type: .custom)
+    var currentPickingField: TextFieldType?
     
     override func loadView() {
         super.loadView()
+        
         currencyConnverterViewModel = CurrencyConversionViewModel(subscriber: self)
         view = UIView()
         view.backgroundColor = .white
@@ -27,9 +29,11 @@ class ConverterViewController: UIViewController {
         toCurrencyTextField.delegate = self
         swapButton.setImage(.init(named: "swap"), for: .normal)
         swapButton.frame = .init(origin: .zero, size: .init(width: 32, height: 32))
-        
+        swapButton.addTarget(self, action: #selector(swapCurrency), for: .touchUpInside)
         swapButton.translatesAutoresizingMaskIntoConstraints = false
         fromCurrencyTextField.translatesAutoresizingMaskIntoConstraints = false
+        fromCurrencyTextField.pickerActionHanlder = self
+        toCurrencyTextField.pickerActionHanlder = self
         toCurrencyTextField.translatesAutoresizingMaskIntoConstraints = false
         
         view.addSubview(swapButton)
@@ -43,6 +47,15 @@ class ConverterViewController: UIViewController {
         super.viewDidLoad()
         title = "Converter"
     }
+    
+    @objc func swapCurrency() {
+        currencyConnverterViewModel?.swapCurrencies()
+        if let fromAmount = fromCurrencyTextField.text {
+            currencyConnverterViewModel?.fromTextFieldAmount = fromAmount
+        } else if let toAmount = toCurrencyTextField.text {
+            currencyConnverterViewModel?.toTextFieldAmount = toAmount
+        }
+    }
 }
 
 
@@ -52,20 +65,19 @@ extension ConverterViewController: UITextFieldDelegate {
             return true
         }
         let fieldText = textField.text ?? ""
-        let resultantText = fieldText + string
-        guard let amountValue = Double(resultantText) else {
-            return false
-        }
+        let resultantText = string == "" ? String(fieldText.dropLast(1)) : fieldText + string
+       
         switch currencyAmountTextField.textFieldType {
             case .from:
-                currencyConnverterViewModel?.fromAmount = amountValue
+                currencyConnverterViewModel?.fromTextFieldAmount = resultantText
                 break
             case .to:
-                currencyConnverterViewModel?.toAmount = amountValue
+                currencyConnverterViewModel?.toTextFieldAmount = resultantText
                 break
         }
         return true
     }
+    
 }
 
 
@@ -86,9 +98,45 @@ extension ConverterViewController : CurrencyConversionViewModelEventable {
         guard let model = currencyConnverterViewModel else {
             return
         }
-        (fromCurrencyTextField.leftView as? UIButton)?.setTitle(model.fromCurrency?.keys.first ?? "__", for: .normal)
-        (toCurrencyTextField.leftView as? UIButton)?.setTitle(model.toCurrency?.keys.first ??  "__", for: .normal)
-        fromCurrencyTextField.text = model.fromAmountToBeDisplayed
-        toCurrencyTextField.text = model.toAmountToBeDisplayed
+        (fromCurrencyTextField.leftView as? UIButton)?.setTitle(model.fromCurrency?.keys.first ?? "_\u{25BE}", for: .normal)
+        (toCurrencyTextField.leftView as? UIButton)?.setTitle(model.toCurrency?.keys.first ??  "_\u{25BE}", for: .normal)
+    }
+    
+    func updateFromfield() {
+        guard let model = currencyConnverterViewModel else {
+            return
+        }
+        fromCurrencyTextField.text = model.fromTextFieldAmountDisplayable
+    }
+    func updateToField() {
+        guard let model = currencyConnverterViewModel else {
+            return
+        }
+        toCurrencyTextField.text = model.toTextFieldAmountDisplayable
+    }
+}
+
+extension ConverterViewController : CurrencyPickable, CurrencyPickedHandler {
+    func pickCurrency(for type: TextFieldType) {
+        currentPickingField = type
+        let picker = PickerController(style: .insetGrouped)
+        picker.data = currencyConnverterViewModel?.currencies
+        picker.currencyPickedHandler = self
+        present(picker, animated: true)
+    }
+    
+    func currencyPicked(picked: [String : String]) {
+        switch currentPickingField {
+        case .to:
+            currencyConnverterViewModel?.toCurrency = picked
+            break
+        case .from:
+            currencyConnverterViewModel?.fromCurrency = picked
+            break
+        default:
+            //No cases - impossible
+            break
+        }
+        dismiss(animated: true)
     }
 }

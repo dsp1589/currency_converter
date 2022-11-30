@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7D17935D29364B59008A243E /* PickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D17935C29364B59008A243E /* PickerController.swift */; };
+		7D17935F293674CB008A243E /* ExchangeRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D17935E293674CB008A243E /* ExchangeRate.swift */; };
 		7D77EBCB2935D4A200BAA949 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D77EBCA2935D4A200BAA949 /* AppDelegate.swift */; };
 		7D77EBCD2935D4A200BAA949 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D77EBCC2935D4A200BAA949 /* SceneDelegate.swift */; };
 		7D77EBCF2935D4A200BAA949 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D77EBCE2935D4A200BAA949 /* ViewController.swift */; };
@@ -19,6 +21,10 @@
 		7D81AD582936066700E1E732 /* LayoutConstraints+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D81AD572936066700E1E732 /* LayoutConstraints+Helpers.swift */; };
 		7D81AD5A2936085E00E1E732 /* UITextField+CustomInit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D81AD592936085E00E1E732 /* UITextField+CustomInit.swift */; };
 		7D81AD5D2936112100E1E732 /* CurrencyConversionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D81AD5C2936112100E1E732 /* CurrencyConversionViewModel.swift */; };
+		7D81AD60293634B800E1E732 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D81AD5F293634B800E1E732 /* ApiService.swift */; };
+		7D81AD622936361800E1E732 /* FixerIOService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D81AD612936361800E1E732 /* FixerIOService.swift */; };
+		7D81AD642936363300E1E732 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D81AD632936363300E1E732 /* Service.swift */; };
+		7D81AD6729363ACE00E1E732 /* SupportedCurrencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D81AD6629363ACE00E1E732 /* SupportedCurrencies.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +45,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7D17935C29364B59008A243E /* PickerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerController.swift; sourceTree = "<group>"; };
+		7D17935E293674CB008A243E /* ExchangeRate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRate.swift; sourceTree = "<group>"; };
 		7D77EBC72935D4A200BAA949 /* Currency.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Currency.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D77EBCA2935D4A200BAA949 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7D77EBCC2935D4A200BAA949 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -55,6 +63,10 @@
 		7D81AD572936066700E1E732 /* LayoutConstraints+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LayoutConstraints+Helpers.swift"; sourceTree = "<group>"; };
 		7D81AD592936085E00E1E732 /* UITextField+CustomInit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+CustomInit.swift"; sourceTree = "<group>"; };
 		7D81AD5C2936112100E1E732 /* CurrencyConversionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConversionViewModel.swift; sourceTree = "<group>"; };
+		7D81AD5F293634B800E1E732 /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
+		7D81AD612936361800E1E732 /* FixerIOService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixerIOService.swift; sourceTree = "<group>"; };
+		7D81AD632936363300E1E732 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		7D81AD6629363ACE00E1E732 /* SupportedCurrencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportedCurrencies.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +94,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7D17936029373CB9008A243E /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				7D81AD592936085E00E1E732 /* UITextField+CustomInit.swift */,
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
 		7D77EBBE2935D4A200BAA949 = {
 			isa = PBXGroup;
 			children = (
@@ -105,6 +125,9 @@
 		7D77EBC92935D4A200BAA949 /* Currency */ = {
 			isa = PBXGroup;
 			children = (
+				7D17936029373CB9008A243E /* CustomViews */,
+				7D81AD6529363AB200E1E732 /* Models */,
+				7D81AD5E293634A500E1E732 /* Services */,
 				7D81AD5B2936110900E1E732 /* ViewModels */,
 				7D77EC012935E19300BAA949 /* Extensions */,
 				7D77EBFE2935DB9300BAA949 /* ViewControllers */,
@@ -139,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				7D77EBFF2935DBAF00BAA949 /* ConverterViewController.swift */,
+				7D17935C29364B59008A243E /* PickerController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -155,7 +179,6 @@
 			isa = PBXGroup;
 			children = (
 				7D81AD572936066700E1E732 /* LayoutConstraints+Helpers.swift */,
-				7D81AD592936085E00E1E732 /* UITextField+CustomInit.swift */,
 			);
 			path = UIViews;
 			sourceTree = "<group>";
@@ -166,6 +189,25 @@
 				7D81AD5C2936112100E1E732 /* CurrencyConversionViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		7D81AD5E293634A500E1E732 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				7D81AD5F293634B800E1E732 /* ApiService.swift */,
+				7D81AD612936361800E1E732 /* FixerIOService.swift */,
+				7D81AD632936363300E1E732 /* Service.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		7D81AD6529363AB200E1E732 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				7D81AD6629363ACE00E1E732 /* SupportedCurrencies.swift */,
+				7D17935E293674CB008A243E /* ExchangeRate.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -301,9 +343,15 @@
 				7D77EBCF2935D4A200BAA949 /* ViewController.swift in Sources */,
 				7D81AD5D2936112100E1E732 /* CurrencyConversionViewModel.swift in Sources */,
 				7D77EBCB2935D4A200BAA949 /* AppDelegate.swift in Sources */,
+				7D17935D29364B59008A243E /* PickerController.swift in Sources */,
 				7D81AD5A2936085E00E1E732 /* UITextField+CustomInit.swift in Sources */,
+				7D81AD6729363ACE00E1E732 /* SupportedCurrencies.swift in Sources */,
 				7D77EBCD2935D4A200BAA949 /* SceneDelegate.swift in Sources */,
+				7D17935F293674CB008A243E /* ExchangeRate.swift in Sources */,
+				7D81AD622936361800E1E732 /* FixerIOService.swift in Sources */,
 				7D81AD582936066700E1E732 /* LayoutConstraints+Helpers.swift in Sources */,
+				7D81AD642936363300E1E732 /* Service.swift in Sources */,
+				7D81AD60293634B800E1E732 /* ApiService.swift in Sources */,
 				7D77EC002935DBAF00BAA949 /* ConverterViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -482,7 +530,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -512,7 +560,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

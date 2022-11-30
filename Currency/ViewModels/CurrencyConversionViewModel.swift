@@ -30,7 +30,6 @@ class CurrencyConversionViewModel {
         }
     }
     var reverseCalculation = false
-    var historicalRate : [RateHistory] = []
     private weak var subscriber: CurrencyConversionViewModelEventable?
     
     var currencies: [String: String]? {

@@ -26,6 +26,7 @@
 		7D77EBEC2935D4A400BAA949 /* CurrencyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D77EBEB2935D4A400BAA949 /* CurrencyUITests.swift */; };
 		7D77EBEE2935D4A400BAA949 /* CurrencyUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D77EBED2935D4A400BAA949 /* CurrencyUITestsLaunchTests.swift */; };
 		7D77EC002935DBAF00BAA949 /* ConverterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D77EBFF2935DBAF00BAA949 /* ConverterViewController.swift */; };
+		7D805E71293843D50059A8F1 /* SupportedCurrencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D81AD6629363ACE00E1E732 /* SupportedCurrencies.swift */; };
 		7D81AD582936066700E1E732 /* LayoutConstraints+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D81AD572936066700E1E732 /* LayoutConstraints+Helpers.swift */; };
 		7D81AD5A2936085E00E1E732 /* UITextField+CustomInit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D81AD592936085E00E1E732 /* UITextField+CustomInit.swift */; };
 		7D81AD5D2936112100E1E732 /* CurrencyConversionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D81AD5C2936112100E1E732 /* CurrencyConversionViewModel.swift */; };
@@ -399,6 +400,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7D179371293799DC008A243E /* ConverterModelValidations.swift in Sources */,
+				7D805E71293843D50059A8F1 /* SupportedCurrencies.swift in Sources */,
 				7D77EBE22935D4A400BAA949 /* CurrencyTests.swift in Sources */,
 				7D17936F2937953C008A243E /* MockData.swift in Sources */,
 			);
